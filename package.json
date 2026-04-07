@@ -1,0 +1,48 @@
+{
+  "name": "tridenta-vscode-extension",
+  "displayName": "Tridenta SQL Panel",
+  "description": "VS Code WebView extension for logging into TridentaDB and executing SQL queries.",
+  "version": "0.0.1",
+  "publisher": "tridenta",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:tridenta.sidebarView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tridenta",
+          "title": "Tridenta",
+          "icon": "media/tridenta-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "tridenta": [
+        {
+          "type": "webview",
+          "id": "tridenta.sidebarView",
+          "name": "SQL Panel"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.6.2",
+    "typescript": "^5.5.4"
+  }
+}
